@@ -226,6 +226,308 @@ Setelah itu, akses kembali halaman berikut di browser [http://localhost:8080/abo
 
 ---
 
+### Membuat Layout Web dengan CSS
+Pada CodeIgniter 4, file yang menyimpan asset seperti CSS dan JavaScript terletak pada direktori `public`.
+
+Buat file CSS pada direktori `public` dengan nama `style.css` lalu tambahkan kode berikut:
+
+```css
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body */
+body {
+    line-height: 1;
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    color: #5a5a5a;
+}
+
+/* Container */
+#container {
+    width: 980px;
+    margin: 0 auto;
+    box-shadow: 0 0 1em #cccccc;
+}
+
+/* Header */
+header {
+    padding: 20px;
+}
+
+header h1 {
+    margin: 20px 10px;
+    color: #b5b5b5;
+}
+
+/* Navigasi */
+nav {
+    display: block;
+    background-color: #1f5faa;
+}
+
+nav a {
+    padding: 15px 30px;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a.active,
+nav a:hover {
+    background-color: #2b83ea;
+}
+
+/* Hero Panel */
+#hero {
+    background-color: #e4e4e5;
+    padding: 50px 20px;
+    margin-bottom: 20px;
+}
+
+#hero h1 {
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+#hero p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+/* Main Content */
+#wrapper {
+    margin: 0;
+}
+
+#main {
+    float: left;
+    width: 640px;
+    padding: 20px;
+}
+
+/* Sidebar Area */
+#sidebar {
+    float: left;
+    width: 260px;
+    padding: 20px;
+}
+
+/* Widget */
+.widget-box {
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.widget-box .title {
+    padding: 10px 16px;
+    background-color: #428bca;
+    color: #fff;
+}
+
+.widget-box ul {
+    list-style-type: none;
+}
+
+.widget-box li {
+    border-bottom: 1px solid #eee;
+}
+
+.widget-box li a {
+    padding: 10px 16px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+
+.widget-box li:hover a {
+    background-color: #eee;
+}
+
+.widget-box p {
+    padding: 15px;
+    line-height: 25px;
+}
+
+/* Footer */
+footer {
+    clear: both;
+    background-color: #1d1d1d;
+    padding: 20px;
+    color: #eee;
+}
+
+/* Box */
+.box {
+    display: block;
+    float: left;
+    width: 33.333333%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.box h3 {
+    margin: 15px 0;
+}
+
+.box p {
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.box img {
+    border: 0;
+    vertical-align: middle;
+}
+
+/* Circular Image */
+.image-circle {
+    border-radius: 50%;
+}
+
+/* Row */
+.row {
+    margin: 0 -10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* Clearfix */
+.row:after,
+.row:before,
+.entry:after,
+.entry:before {
+    content: '';
+    display: table;
+}
+
+.row:after,
+.entry:after {
+    clear: both;
+}
+
+/* Divider */
+.divider {
+    border: 0;
+    border-top: 1px solid #eeeeee;
+    margin: 40px 0;
+}
+
+/* Entry */
+.entry {
+    margin: 15px 0;
+}
+
+.entry h2 {
+    margin-bottom: 20px;
+}
+
+.entry p {
+    line-height: 25px;
+}
+
+.entry img {
+    float: left;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+/* Right-aligned Image */
+.entry .right-img {
+    float: right;
+}
+```
+
+---
+
+### Membuat Template Header dan Footer
+
+Buat folder `template` dalam direktori `app/Views/`, lalu tambahkan dua file berikut:
+
+### File: `app/Views/template/header.php`
+```php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?= $title; ?></title>
+    <link rel="stylesheet" href="<?= base_url('/style.css'); ?>">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>Layout Sederhana</h1>
+        </header>
+        <nav>
+            <a href="<?= base_url('/'); ?>" class="active">Home</a>
+            <a href="<?= base_url('/artikel'); ?>">Artikel</a>
+            <a href="<?= base_url('/about'); ?>">About</a>
+            <a href="<?= base_url('/contact'); ?>">Kontak</a>
+        </nav>
+        <section id="wrapper">
+            <section id="main">
+```
+
+### File: `app/view/template/footer.php`
+```php
+</section>
+<aside id="sidebar">
+    <div class="widget-box">
+        <h3 class="title">Widget Header</h3>
+        <ul>
+            <li><a href="#">Widget Link</a></li>
+            <li><a href="#">Widget Link</a></li>
+        </ul>
+    </div>
+    <div class="widget-box">
+        <h3 class="title">Widget Text</h3>
+        <p>
+            Vestibulum lorem elit, iaculis in nisl volutpat, malesuada tincidunt arcu. 
+            Proin in leo fringilla, vestibulum mi porta, faucibus felis. Integer pharetra 
+            est nunc, nec pretium nunc pretium ac.
+        </p>
+    </div>
+</aside>
+</section>
+
+<footer>
+    <p>&copy; 2025 - Universitas Pelita Bangsa</p>
+</footer>
+
+</div>
+</body>
+</html>
+```
+
+### Perbarui File `app/view/about.php`
+```php
+<?= $this->include('template/header'); ?>
+
+<h1><?= $title; ?></h1>
+<hr>
+<p><?= $content; ?></p>
+
+<?= $this->include('template/footer'); ?>
+```
+Setelah itu, akses kembali halaman berikut di browser [http://localhost:8080/about](http://localhost:8080/about)
+
+![11](https://github.com/user-attachments/assets/473da780-b9f1-4bba-adea-79ae12e90e46)
 
 
 
