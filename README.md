@@ -1,11 +1,12 @@
 # Web_2
 
-| Nama              | Intan Virginia Aulia Putri     |
-|-------------------|------------------------------|
-| NIM               | 3123310657                    |
-| Kelas             | TI.23.A.6                     |
-| Mata Kuliah       | Pemrograman Web 2            |
-| Dosen Pengampu    | Agung Nugroho, S.Kom., M.Kom.|
+| **Keterangan**       | **Detail**                            |  
+|----------------------|--------------------------------------|  
+| **Nama**            | Intan Virginia Aulia Putri           |  
+| **NIM**             | 3123310657                           |  
+| **Kelas**           | TI.23.A.6                            |  
+| **Mata Kuliah**     | Pemrograman Web 2                   |  
+| **Dosen Pengampu**  | Agung Nugroho, S.Kom., M.Kom.       |  
 
 ## Praktikum 1: PHP Framework (Codeigniter)
 
